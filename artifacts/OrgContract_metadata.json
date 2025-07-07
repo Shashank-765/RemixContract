@@ -1,0 +1,291 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_admin",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "docId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "cid",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "docType",
+						"type": "string"
+					}
+				],
+				"name": "DocumentUploaded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "docId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum OrgContract.Status",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"name": "DocumentVerified",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "docCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "documents",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "cid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "docType",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "uploadedBy",
+						"type": "address"
+					},
+					{
+						"internalType": "enum OrgContract.Status",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "uploadedAt",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_docId",
+						"type": "uint256"
+					}
+				],
+				"name": "getDocument",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "cid",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "docType",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "uploadedBy",
+								"type": "address"
+							},
+							{
+								"internalType": "enum OrgContract.Status",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "uploadedAt",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OrgContract.Document",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_docId",
+						"type": "uint256"
+					}
+				],
+				"name": "getDocumentCID",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "orgAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "orgName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_cid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_docType",
+						"type": "string"
+					}
+				],
+				"name": "uploadDocument",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_docId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "approve",
+						"type": "bool"
+					}
+				],
+				"name": "verifyDocument",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"OrgContract.sol": "OrgContract"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"OrgContract.sol": {
+			"keccak256": "0x1b7feb646c6650451debf0f941d83f0ce597d91db4f28581952ad7e3324e5d1e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c661ec670a34e2f2a559ccc417da0643a84c10fa7aa560411af28457048b2c1f",
+				"dweb:/ipfs/QmW3LbuL9AAyeGyezxfC53fKbiaiSFJmttkVGY4wX1PGf1"
+			]
+		}
+	},
+	"version": 1
+}

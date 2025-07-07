@@ -1,0 +1,171 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "orgAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "orgName",
+						"type": "string"
+					}
+				],
+				"name": "OrgCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "allOrgs",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "orgAdmin",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "orgName",
+						"type": "string"
+					}
+				],
+				"name": "createOrganization",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllOrgs",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "orgs",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "orgContractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "orgName",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"superadmin.sol": "SuperAdmin"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"OrgContract.sol": {
+			"keccak256": "0x1b7feb646c6650451debf0f941d83f0ce597d91db4f28581952ad7e3324e5d1e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c661ec670a34e2f2a559ccc417da0643a84c10fa7aa560411af28457048b2c1f",
+				"dweb:/ipfs/QmW3LbuL9AAyeGyezxfC53fKbiaiSFJmttkVGY4wX1PGf1"
+			]
+		},
+		"superadmin.sol": {
+			"keccak256": "0x83afa296997a4dbf033e7aa04796a8d591631d7bdc7a43a235296b650d8f8f91",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2277331f4d718757125a0daad49c58dc97a0f18c0a6e73a71ab399e6ca3f443e",
+				"dweb:/ipfs/QmchCyH4R6FTR5bvkVRezmab6cmuB8jnLWL3fnQR4UdMpN"
+			]
+		}
+	},
+	"version": 1
+}
