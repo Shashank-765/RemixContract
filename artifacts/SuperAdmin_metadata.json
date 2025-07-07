@@ -159,11 +159,11 @@
 			]
 		},
 		"superadmin.sol": {
-			"keccak256": "0x83afa296997a4dbf033e7aa04796a8d591631d7bdc7a43a235296b650d8f8f91",
+			"keccak256": "0x1fe632acf3a2719c8b0fe334c2bd2602afc4ab2de1aa30083f5889b74035b634",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2277331f4d718757125a0daad49c58dc97a0f18c0a6e73a71ab399e6ca3f443e",
-				"dweb:/ipfs/QmchCyH4R6FTR5bvkVRezmab6cmuB8jnLWL3fnQR4UdMpN"
+				"bzz-raw://1ef8179938d421c110aa962d020954d757a9a5c44e7628d2bd72c49689b2331b",
+				"dweb:/ipfs/QmR6V7hmt1n31691uYj3auq2mXsD7SoqLwMkNha45ESk1J"
 			]
 		}
 	},

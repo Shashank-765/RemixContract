@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./OrgContract.sol";
 
+
 contract SuperAdmin {
     address public owner;
 
@@ -26,6 +27,7 @@ contract SuperAdmin {
     }
 
     function createOrganization(address orgAdmin, string memory orgName) external onlyOwner {
+        require(orgAdmin  != address(0), "nota zero address");
         OrgContract newOrg = new OrgContract(orgAdmin, orgName);
         orgs[orgAdmin] = OrgInfo(address(newOrg), orgName);
         allOrgs.push(address(newOrg));
