@@ -25,12 +25,6 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "docId",
-						"type": "uint256"
-					},
-					{
 						"indexed": true,
 						"internalType": "address",
 						"name": "user",
@@ -56,9 +50,15 @@
 				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "docId",
+						"name": "index",
 						"type": "uint256"
 					},
 					{
@@ -72,27 +72,19 @@
 				"type": "event"
 			},
 			{
-				"inputs": [],
-				"name": "docCount",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "documents",
+				"name": "documentsByUser",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -126,8 +118,118 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getAllDocuments",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "cid",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "docType",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "uploadedBy",
+								"type": "address"
+							},
+							{
+								"internalType": "enum OrgContract.Status",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "uploadedAt",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OrgContract.Document[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllUsers",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getApprovedDocuments",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "cid",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "docType",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "uploadedBy",
+								"type": "address"
+							},
+							{
+								"internalType": "enum OrgContract.Status",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "uploadedAt",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OrgContract.Document[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
-						"name": "_docId",
+						"name": "index",
 						"type": "uint256"
 					}
 				],
@@ -172,17 +274,17 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "_docId",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
-				"name": "getDocumentCID",
+				"name": "isUserKnown",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "bool",
 						"name": "",
-						"type": "string"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -236,7 +338,31 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_docId",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "users",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
 						"type": "uint256"
 					},
 					{
@@ -279,11 +405,11 @@
 	},
 	"sources": {
 		"OrgContract.sol": {
-			"keccak256": "0x1b7feb646c6650451debf0f941d83f0ce597d91db4f28581952ad7e3324e5d1e",
+			"keccak256": "0xd75c0325f8a3ac6ec75ae01febfc0e2bcbc68aafd23dae803d642e966e0e9389",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c661ec670a34e2f2a559ccc417da0643a84c10fa7aa560411af28457048b2c1f",
-				"dweb:/ipfs/QmW3LbuL9AAyeGyezxfC53fKbiaiSFJmttkVGY4wX1PGf1"
+				"bzz-raw://842cc7e4cfcb1e58d023d059ee1cc3fa4b44890cf64249fcc17f1697bc2ddbd5",
+				"dweb:/ipfs/Qmbc4A5yrp5CpXvKeqa6mZhZFuiaUiiHqVR5zJ7gyz9wiQ"
 			]
 		}
 	},

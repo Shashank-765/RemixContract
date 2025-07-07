@@ -21,6 +21,25 @@
 					},
 					{
 						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "AdminFunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "orgAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
 						"internalType": "address",
 						"name": "contractAddress",
 						"type": "address"
@@ -47,7 +66,17 @@
 				"outputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "orgContractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "orgName",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "orgAdmin",
 						"type": "address"
 					}
 				],
@@ -69,7 +98,43 @@
 				],
 				"name": "createOrganization",
 				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "orgAdmin",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "fundOrgAdmin",
+				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllOrgAdminBalances",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "admins",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "balances",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -77,9 +142,39 @@
 				"name": "getAllOrgs",
 				"outputs": [
 					{
-						"internalType": "address[]",
+						"components": [
+							{
+								"internalType": "address",
+								"name": "orgContractAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "orgName",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "orgAdmin",
+								"type": "address"
+							}
+						],
+						"internalType": "struct SuperAdmin.OrgInfo[]",
 						"name": "",
-						"type": "address[]"
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getSuperAdminBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -93,7 +188,7 @@
 						"type": "address"
 					}
 				],
-				"name": "orgs",
+				"name": "orgsByAdmin",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -104,6 +199,11 @@
 						"internalType": "string",
 						"name": "orgName",
 						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "orgAdmin",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -121,6 +221,10 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -130,7 +234,23 @@
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"createOrganization(address,string)": {
+					"notice": "Create new org and fund its admin with 0.1 MATIC"
+				},
+				"fundOrgAdmin(address,uint256)": {
+					"notice": "Fund a specific org admin manually"
+				},
+				"getAllOrgAdminBalances()": {
+					"notice": "Get MATIC balances of all org admins"
+				},
+				"getAllOrgs()": {
+					"notice": "Return all org info"
+				},
+				"getSuperAdminBalance()": {
+					"notice": "Check contract balance"
+				}
+			},
 			"version": 1
 		}
 	},
@@ -151,19 +271,19 @@
 	},
 	"sources": {
 		"OrgContract.sol": {
-			"keccak256": "0x1b7feb646c6650451debf0f941d83f0ce597d91db4f28581952ad7e3324e5d1e",
+			"keccak256": "0xd75c0325f8a3ac6ec75ae01febfc0e2bcbc68aafd23dae803d642e966e0e9389",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c661ec670a34e2f2a559ccc417da0643a84c10fa7aa560411af28457048b2c1f",
-				"dweb:/ipfs/QmW3LbuL9AAyeGyezxfC53fKbiaiSFJmttkVGY4wX1PGf1"
+				"bzz-raw://842cc7e4cfcb1e58d023d059ee1cc3fa4b44890cf64249fcc17f1697bc2ddbd5",
+				"dweb:/ipfs/Qmbc4A5yrp5CpXvKeqa6mZhZFuiaUiiHqVR5zJ7gyz9wiQ"
 			]
 		},
 		"superadmin.sol": {
-			"keccak256": "0x1fe632acf3a2719c8b0fe334c2bd2602afc4ab2de1aa30083f5889b74035b634",
+			"keccak256": "0xaafb4a78b4c62c2193feef574848428212c8c7c54b6aab91753a4987696d7819",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1ef8179938d421c110aa962d020954d757a9a5c44e7628d2bd72c49689b2331b",
-				"dweb:/ipfs/QmR6V7hmt1n31691uYj3auq2mXsD7SoqLwMkNha45ESk1J"
+				"bzz-raw://fecde056858fbf6b4211dc895c914e301d7461141efeb3dfd142e4c872b2b4eb",
+				"dweb:/ipfs/QmWy8p5Yi59TqhzBVrR4yJNv2jmTcywK2eHvWgmJhv9tpG"
 			]
 		}
 	},
